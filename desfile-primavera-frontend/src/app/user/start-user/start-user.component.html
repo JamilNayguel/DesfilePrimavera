@@ -1,0 +1,71 @@
+<div class="page-container">
+    <!-- Banner en la parte superior -->
+    <header class="banner-container">
+      <img src="../dashboard/recursos/banner.jpg" alt="Banner" class="banner">
+    </header>
+  
+    <!-- Contenedor principal con el navbar a la izquierda y el dashboard a la derecha -->
+    <div class="content-container">
+        <!-- Botón para desplegar el navbar -->
+      <button id="navbar-toggle" class="navbar-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Navbar con opciones a la izquierda -->
+      <nav class="navbar">
+        <ul>
+          <li><a href="#" class="nav-link">Inicio</a></li>
+          <li><a href="#" class="nav-link">Solicitudes</a></li>
+          <li><a href="#" class="nav-link">Consultas</a></li>
+        </ul>
+      </nav>
+  
+      <!-- Contenedor del dashboard -->
+      <div class="dashboard-container">
+        <h1>Desfile de la Primavera</h1>
+        <h2>Gestión 2024</h2>
+        
+        <!-- Contenido del dashboard -->
+        <div class="dashboard-content">
+          <!-- Botón de Solicitudes -->
+          <div class="card">
+            <button class="button solicitudes">
+              <i class="fas fa-file-alt"></i> Solicitudes
+            </button>
+          </div>
+  
+          <!-- Botón de Consultas -->
+          <div class="card">
+            <button class="button consultas">
+              <i class="fas fa-search"></i> Consultas
+            </button>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+  <!-- Estilos -->
+  
+  <!-- JavaScript para el toggle del navbar -->
+  <script>
+    const navbarToggle = document.getElementById('navbar-toggle');
+    const pageContainer = document.querySelector('.page-container');
+  
+    navbarToggle.addEventListener('click', () => {
+      pageContainer.classList.toggle('navbar-open');
+    });
+  </script>
+  
+  <!-- Iconos de FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  
+  
+  <!-- Colores institucionales:
+   Naranja: #f9b154
+   Magenta: #ea547c
+   Morado: #6d56a0
+   Celeste: #4ac1e0
+   verde agua: #4fb9a8
+   -->
