@@ -2,16 +2,16 @@ const User = require('../models/userModel.js');
 const jwt = require('jsonwebtoken');
 
 exports.login = async (req, res) => {
-    const { usuario, contrasena } = req.body;
-
+    
+    const {Usuario, Contrasena} = req.body;
     try {
-        const user = await User.findByUsername(usuario);
+        const user = await User.findByUsername(Usuario);
 
         if (!user) {
-            return res.status(401).json({ message: 'Usuario o contraseña incorrectos' });
+            return res.status(401).json({ message: 'Usuario contraseña incorrectos' });
         }
 
-        const isMatch = await User.verifyPassword(usuario, contrasena);
+        const isMatch = await User.verifyPassword(Usuario, Contrasena);
 
         if (!isMatch) {
             return res.status(401).json({ message: 'Usuario o contraseña incorrectos' });
@@ -32,7 +32,7 @@ exports.logout = (req, res) => {
     }
 
     try {
-        // Aquí puedes agregar lógica para invalidar el token si es necesario
+        
         res.status(200).json({ message: 'Cierre de sesión exitoso' });
     } catch (err) {
         res.status(500).json({ error: 'Error en el servidor, intente nuevamente' });
@@ -57,7 +57,7 @@ exports.verifyToken = (req, res, next) => {
                 return res.status(401).json({ message: 'Token ha sido invalidado' });
             }
 
-            req.usuarioId = decoded.idUsuario;
+            req.UsuarioId = decoded.idUsuario;
             next();
         } catch (err) {
             res.status(500).json({ error: 'Error en la validación del token' });

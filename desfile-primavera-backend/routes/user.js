@@ -1,8 +1,9 @@
 const { Router } = require('express');
-const { login, verificarToken } = require('../controllers/userController.js');
+const { login, logout, verifyToken } = require('../controllers/userController.js');  // Verifica que estás importando logout y verifyToken
 
 const userRouter = Router();
 
 userRouter.post('/login', login);
 userRouter.post('/logout', verifyToken, logout);
+
 module.exports = userRouter;
