@@ -1,1 +1,200 @@
-<p>add-request works!</p>
+<link href="https://fonts.googleapis.com/css2?family=Arciform:wght@400;700&display=swap" rel="stylesheet">
+<div class="page-container">
+    <!-- Banner en la parte superior -->
+    <header class="banner-container">
+      <img src="/desfile-primavera-frontend/src/app/image/banner.jpg" alt="Banner" class="banner">
+    </header>
+  
+    <!-- Contenido centrado -->
+    <div class="form-container">
+      <form id="inscription-form">
+        <!-- Sección de Datos Personales -->
+        <h2>Datos Personales</h2>
+        <div class="form-section">
+          <!-- Tipo -->
+          <div class="form-group">
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" name="tipo">
+              <option value="1">Institucion</option>
+              <option value="2">Organizacion</option>
+              <option value="3">Particular</option>
+            </select>
+          </div>
+  
+          <div class="form-group two-columns">
+            <div class="form-group column">
+                <label for="tipo-documento">Tipo de cocumento:</label>
+                <select id="tipo" name="tipo">
+                  <option value="1">Carnet de identidad</option>
+                  <option value="2">Carnet extrangero</option>
+                  <option value="3">Pasaporte</option>
+                  <option value="3">RUN</option>
+                </select>
+              </div>
+            <div class="column">
+              <label for="num-documento">Numero de cocumento:</label>
+              <input type="text" id="apellidos" name="apellidos">
+            </div>
+          </div>
+
+          <!-- Nombres y Apellidos -->
+          <div class="form-group two-columns">
+            <div class="column">
+              <label for="nombres">Nombres:</label>
+              <input type="text" id="nombres" name="nombres">
+            </div>
+            <div class="column">
+              <label for="primerApellido">Primer Apellido:</label>
+              <input type="text" id="apellidos" name="apellidos">
+            </div>
+          </div>
+
+          <!-- segundo apellidos -->
+          <div class="form-group two-columns">
+            <div class="column">
+              <label for="segundoApellido">Segundo Apellido:</label>
+              <input type="text" id="nombres" name="nombres">
+            </div>
+            <div class="column">
+              
+            </div>
+          </div>
+
+          <!-- Dirección -->
+          <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion">
+          </div>
+
+          <!-- telefono y otro telefono -->
+          <div class="form-group two-columns">
+            <div class="column">
+              <label for="celular">Nro. Celular:</label>
+              <input type="text" id="celular" name="celular">
+            </div>
+            <div class="column">
+              <label for="apellidos">Otro Telefono:</label>
+              <input type="text" id="otro_telefono" name="otro_telefono">
+            </div>
+          </div>
+          
+            <!-- correo -->
+            <div class="form-group two-columns">
+                <div class="column">
+                  <label for="nombres">Correo Electronico:</label>
+                  <input type="text" id="correo" name="correo">
+                </div>
+                <div class="column">
+                  
+                </div>
+              </div>
+
+          
+        </div>
+  
+        <!-- Sección de Agrupación -->
+        <h2>Agrupación</h2>
+        <div class="form-section">
+          <!-- Nombre del grupo -->
+          <div class="form-group">
+            <label for="nombre-grupo">Nombre Grupo:</label>
+            <input type="text" id="nombre-grupo" name="nombre-grupo">
+          </div>
+  
+          <!-- Categoría -->
+          <div class="form-group">
+            <label for="categoria">Categoría:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-row">
+
+                    <div class="checkbox-row-cat">
+                    <input type="radio" id="Categoria" name="Categoria" value="1">
+                    <label for="Inicial">Inicial&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+
+                    <div class="checkbox-row-cat">
+                    <input type="radio" id="Categoria" name="Categoria" value="2">
+                    <label for="Primaria">Primaria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+
+                    <div class="checkbox-row-cat">
+                    <input type="radio" id="Categoria" name="Categoria" value="3">
+                    <label for="Secundaria">Secundaria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </div>
+                <div class="checkbox-row">
+                    <div class="checkbox-row-cat">
+                    <input type="radio" id="Categoria" name="Categoria" value="4">
+                    <label for="Universitaria">Universitaria</label>
+                    </div>
+
+                    <div class="checkbox-row-cat">
+                    <input type="radio" id="Categoria" name="Categoria" value="5">
+                    <label for="Junta">Junta Vecinal/Sindicatos</label>
+                    </div>
+
+                    <div class="checkbox-row-cat">
+                    <input type="radio" id="Categoria" name="Categoria" value="6">
+                    <label for="Otros">individual/Otros</label>
+                    </div>
+                </div>
+            </div>
+  
+          <!-- Banda -->
+          <div class="form-group">
+            <label for="banda">Banda:</label>
+            <textarea id="banda" name="banda" rows="3"></textarea>
+          </div>
+        
+          <!-- Carro Alegorico -->
+          <div class="form-group">
+            <label for="carro">Carro Alegorico:</label>
+            <textarea id="carro" name="carro" rows="3"></textarea>
+          </div>
+
+          <!-- reina -->
+          <div class="form-group">
+            <label for="reina">Reina:</label>
+            <input type="text" id="direccion" name="direccion">
+          </div>
+
+        </div>
+  
+        <!-- Números y Total -->
+        <div class="form-group small-inputs">
+            <div class="input-group">
+              <label for="num-mayores">Num Mayores:</label>
+              <input type="number" id="num-mayores" name="num-mayores" min="0">
+            </div>
+            <div class="input-group">
+              <label for="num-menores">Num Menores:</label>
+              <input type="number" id="num-menores" name="num-menores" min="0">
+            </div>
+            <div class="input-group">
+              <label for="total">Total:</label>
+              <input type="text" id="total" name="total" readonly>
+            </div>
+        </div>
+  
+        <!-- Botón de Registro -->
+        <div class="form-group aling-button">
+            <button type="submit" class="register-button">Registrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  
+  
+  <!-- Script para calcular el total -->
+  <script>
+    document.getElementById('num-mayores').addEventListener('input', calculateTotal);
+    document.getElementById('num-menores').addEventListener('input', calculateTotal);
+  
+    function calculateTotal() {
+      const numMayores = parseInt(document.getElementById('num-mayores').value) || 0;
+      const numMenores = parseInt(document.getElementById('num-menores').value) || 0;
+      document.getElementById('total').value = numMayores + numMenores;
+    }
+  </script>
+  
