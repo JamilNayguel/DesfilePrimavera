@@ -1,7 +1,7 @@
 <div class="page-container">
     <!-- Banner en la parte superior -->
     <header class="banner-container">
-      <img src="../dashboard/recursos/banner.jpg" alt="Banner" class="banner">
+      <img src="image/banner.jpg" alt="Banner" class="banner">
     </header>
   
     <!-- Contenedor principal con el navbar a la izquierda y el dashboard a la derecha -->
@@ -13,9 +13,9 @@
       <!-- Navbar con opciones a la izquierda -->
       <nav class="navbar">
         <ul>
-          <li><a href="#" class="nav-link">Inicio</a></li>
-          <li><a href="#" class="nav-link">Solicitudes</a></li>
-          <li><a href="#" class="nav-link">Consultas</a></li>
+          <li><a (click)="SailStarttRequest()" class="nav-link">Inicio</a></li>
+          <li><a (click)="SailListRequest()" class="nav-link">Solicitudes</a></li>
+          <li><a (click)="SailListConsultationRequest()" class="nav-link">Consultas</a></li>
         </ul>
       </nav>
   
@@ -28,8 +28,8 @@
         <div class="dashboard-content">
           <!-- Botón de Solicitudes -->
           <div class="card">
-            <button class="button solicitudes">
-              <i class="fas fa-file-alt"></i> Solicitudes
+            <button (click)="SailListRequest()" class="button solicitudes">
+              <i (click)="SailListConsultationRequest()" class="fas fa-file-alt"></i> Solicitudes
             </button>
           </div>
   

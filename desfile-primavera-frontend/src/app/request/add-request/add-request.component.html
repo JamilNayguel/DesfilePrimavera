@@ -2,50 +2,50 @@
 <div class="page-container">
     <!-- Banner en la parte superior -->
     <header class="banner-container">
-      <img src="/desfile-primavera-frontend/src/app/image/banner.jpg" alt="Banner" class="banner">
+      <img src="desfile-primavera-frontend\src\app\image\banner.jpg" alt="Banner" class="banner">
     </header>
   
     <!-- Contenido centrado -->
     <div class="form-container">
-      <form id="inscription-form">
+      <form id="inscription-form" (ngSubmit)="addRequest()">
         <!-- Sección de Datos Personales -->
         <h2>Datos Personales</h2>
         <div class="form-section">
           <!-- Tipo -->
           <div class="form-group">
             <label for="tipo">Tipo:</label>
-            <select id="tipo" name="tipo">
-              <option value="1">Institucion</option>
-              <option value="2">Organizacion</option>
-              <option value="3">Particular</option>
+            <select id="Tipo" name="Tipo" [(ngModel)]="request.Tipo">
+              <option value="Institucion">Institucion</option>
+              <option value="Organizacion">Organizacion</option>
+              <option value="Particular">Particular</option>
             </select>
           </div>
   
           <div class="form-group two-columns">
             <div class="form-group column">
-                <label for="tipo-documento">Tipo de cocumento:</label>
-                <select id="tipo" name="tipo">
-                  <option value="1">Carnet de identidad</option>
-                  <option value="2">Carnet extrangero</option>
-                  <option value="3">Pasaporte</option>
-                  <option value="3">RUN</option>
+                <label for="tipoDocumento">Tipo de documento:</label>
+                <select id="tipoDocumento" name="tipoDocumento" [(ngModel)]="request.tipoDocumento">
+                  <option value="Carnet de Identidad">Carnet de identidad</option>
+                  <option value="Carnet extrangero">Carnet extrangero</option>
+                  <option value="Pasaporte">Pasaporte</option>
+                  <option value="RUN">RUN</option>
                 </select>
               </div>
             <div class="column">
-              <label for="num-documento">Numero de cocumento:</label>
-              <input type="text" id="apellidos" name="apellidos">
+              <label for="numeroDocumento">Numero de documento:</label>
+              <input type="text" id="numeroDocumento" name="numeroDocumento" required [(ngModel)]="request.numeroDocumento">
             </div>
           </div>
 
           <!-- Nombres y Apellidos -->
           <div class="form-group two-columns">
             <div class="column">
-              <label for="nombres">Nombres:</label>
-              <input type="text" id="nombres" name="nombres">
+              <label for="Nombres">Nombres:</label>
+              <input type="text" id="Nombres" name="Nombres" required [(ngModel)]="request.Nombres">
             </div>
             <div class="column">
               <label for="primerApellido">Primer Apellido:</label>
-              <input type="text" id="apellidos" name="apellidos">
+              <input type="text" id="primerApellido" name="primerApellido" required [(ngModel)]="request.primerApellido" >
             </div>
           </div>
 
@@ -53,7 +53,7 @@
           <div class="form-group two-columns">
             <div class="column">
               <label for="segundoApellido">Segundo Apellido:</label>
-              <input type="text" id="nombres" name="nombres">
+              <input type="text" id="segundoApellido" name="segundoApellido"  [(ngModel)]="request.segundoApellido"> 
             </div>
             <div class="column">
               
@@ -62,27 +62,27 @@
 
           <!-- Dirección -->
           <div class="form-group">
-            <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" name="direccion">
+            <label for="Direccion">Dirección:</label>
+            <input type="text" id="Direccion" name="Direccion" required [(ngModel)]="request.Direccion" >
           </div>
 
           <!-- telefono y otro telefono -->
           <div class="form-group two-columns">
             <div class="column">
-              <label for="celular">Nro. Celular:</label>
-              <input type="text" id="celular" name="celular">
+              <label for="nroCelular">Nro. Celular:</label>
+              <input type="text" id="nroCelular" name="nroCelular" required [(ngModel)]="request.nroCelular">
             </div>
             <div class="column">
-              <label for="apellidos">Otro Telefono:</label>
-              <input type="text" id="otro_telefono" name="otro_telefono">
+              <label for="otroTelefono">Otro Telefono:</label>
+              <input type="text" id="otroTelefono" name="otroTelefono" [(ngModel)]="request.otroTelefono">
             </div>
           </div>
           
             <!-- correo -->
             <div class="form-group two-columns">
                 <div class="column">
-                  <label for="nombres">Correo Electronico:</label>
-                  <input type="text" id="correo" name="correo">
+                  <label for="Correo">Correo Electronico:</label>
+                  <input type="text" id="Correo" name="Correo" required [(ngModel)]="request.Correo">
                 </div>
                 <div class="column">
                   
@@ -94,11 +94,11 @@
   
         <!-- Sección de Agrupación -->
         <h2>Agrupación</h2>
-        <div class="form-section">
+        < class="form-section">
           <!-- Nombre del grupo -->
           <div class="form-group">
             <label for="nombre-grupo">Nombre Grupo:</label>
-            <input type="text" id="nombre-grupo" name="nombre-grupo">
+            <input type="text" id="nombreGrupo" name="nombreGrupo" required [(ngModel)]="request.nombreGrupo">
           </div>
   
           <!-- Categoría -->
@@ -108,54 +108,54 @@
                 <div class="checkbox-row">
 
                     <div class="checkbox-row-cat">
-                    <input type="radio" id="Categoria" name="Categoria" value="1">
+                    <input type="radio" id="Categoria" name="Categoria" value="Inicial"  [(ngModel)]="request.Categoria">
                     <label for="Inicial">Inicial&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     </div>
 
                     <div class="checkbox-row-cat">
-                    <input type="radio" id="Categoria" name="Categoria" value="2">
+                    <input type="radio" id="Categoria" name="Categoria" value="Primaria" [(ngModel)]="request.Categoria">
                     <label for="Primaria">Primaria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     </div>
 
                     <div class="checkbox-row-cat">
-                    <input type="radio" id="Categoria" name="Categoria" value="3">
+                    <input type="radio" id="Categoria" name="Categoria" value="Secundaria" [(ngModel)]="request.Categoria">
                     <label for="Secundaria">Secundaria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     </div>
                 </div>
                 <div class="checkbox-row">
                     <div class="checkbox-row-cat">
-                    <input type="radio" id="Categoria" name="Categoria" value="4">
+                    <input type="radio" id="Categoria" name="Categoria" value="Universitaria" [(ngModel)]="request.Categoria">
                     <label for="Universitaria">Universitaria</label>
                     </div>
 
                     <div class="checkbox-row-cat">
-                    <input type="radio" id="Categoria" name="Categoria" value="5">
-                    <label for="Junta">Junta Vecinal/Sindicatos</label>
+                    <input type="radio" id="Categoria" name="Categoria" value="Junta V/Sindicato" [(ngModel)]="request.Categoria">
+                    <label for="Junta V/Sindicato">Junta Vecinal/Sindicatos</label>
                     </div>
 
                     <div class="checkbox-row-cat">
-                    <input type="radio" id="Categoria" name="Categoria" value="6">
-                    <label for="Otros">individual/Otros</label>
+                    <input type="radio" id="Categoria" name="Categoria" value="Individual/Otro" [(ngModel)]="request.Categoria">
+                    <label for="Individual/Otro">Individual/Otros</label>
                     </div>
                 </div>
             </div>
   
           <!-- Banda -->
           <div class="form-group">
-            <label for="banda">Banda:</label>
-            <textarea id="banda" name="banda" rows="3"></textarea>
+            <label for="Banda">Banda:</label>
+            <textarea id="Banda" name="Banda" rows="3" required [(ngModel)]="request.Banda"></textarea>
           </div>
         
           <!-- Carro Alegorico -->
           <div class="form-group">
             <label for="carro">Carro Alegorico:</label>
-            <textarea id="carro" name="carro" rows="3"></textarea>
+            <textarea id="carroAlegorico" name="carroAlegorico" rows="3" required [(ngModel)]="request.carroAlegorico"></textarea>
           </div>
 
           <!-- reina -->
           <div class="form-group">
             <label for="reina">Reina:</label>
-            <input type="text" id="direccion" name="direccion">
+            <input type="text" id="Reina" name="Reina" [(ngModel)]="request.Reina">
           </div>
 
         </div>
@@ -164,21 +164,23 @@
         <div class="form-group small-inputs">
             <div class="input-group">
               <label for="num-mayores">Num Mayores:</label>
-              <input type="number" id="num-mayores" name="num-mayores" min="0">
+              <input type="number" id="totalMayores" name="totalMayores" min="0" required [(ngModel)]="request.totalMayores" value="0">
             </div>
             <div class="input-group">
               <label for="num-menores">Num Menores:</label>
-              <input type="number" id="num-menores" name="num-menores" min="0">
+              <input type="number" id="totalMenores" name="totalMenores" min="0" required [(ngModel)]="request.totalMenores" value="0">
             </div>
             <div class="input-group">
               <label for="total">Total:</label>
               <input type="text" id="total" name="total" readonly>
             </div>
+            <input type="text" id="Estado" name="Estado" type="hidden" value="Aprobado"  [(ngModel)]="request.numeroDocumento">
+            <input type="text" id="Fecha" name="Fecha" value=" " type="hidden"  [(ngModel)]="request.numeroDocumento">
         </div>
   
         <!-- Botón de Registro -->
         <div class="form-group aling-button">
-            <button type="submit" class="register-button">Registrar</button>
+            <button type="submit" [disabled]="disabled" class="register-button">Registrar</button>
         </div>
       </form>
     </div>
@@ -188,12 +190,12 @@
   
   <!-- Script para calcular el total -->
   <script>
-    document.getElementById('num-mayores').addEventListener('input', calculateTotal);
-    document.getElementById('num-menores').addEventListener('input', calculateTotal);
+    document.getElementById('totalMayores').addEventListener('input', calculateTotal);
+    document.getElementById('totalMenores').addEventListener('input', calculateTotal);
   
     function calculateTotal() {
-      const numMayores = parseInt(document.getElementById('num-mayores').value) || 0;
-      const numMenores = parseInt(document.getElementById('num-menores').value) || 0;
+      const numMayores = parseInt(document.getElementById('totalMayores').value) || 0;
+      const numMenores = parseInt(document.getElementById('totalMenores').value) || 0;
       document.getElementById('total').value = numMayores + numMenores;
     }
   </script>

@@ -1,1 +1,202 @@
-<p>view-request works!</p>
+<link href="https://fonts.googleapis.com/css2?family=Arciform:wght@400;700&display=swap" rel="stylesheet">
+<div class="page-container">
+    <!-- Banner en la parte superior -->
+    <header class="banner-container">
+      <img src="desfile-primavera-frontend\src\app\image\banner.jpg" alt="Banner" class="banner">
+    </header>
+  
+    <!-- Contenido centrado -->
+    <div class="form-container">
+      <form id="inscription-form">
+        <!-- Sección de Datos Personales -->
+        <h2>Datos Personales</h2>
+        <div class="form-section">
+          <!-- Tipo -->
+          <div class="form-group">
+            <label for="tipo">Tipo:</label>
+            <select id="Tipo" name="Tipo">
+              <option value="Institucion">Institucion</option>
+              <option value="Organizacion">Organizacion</option>
+              <option value="Particular">Particular</option>
+            </select>
+          </div>
+  
+          <div class="form-group two-columns">
+            <div class="form-group column">
+                <label for="tipoDocumento">Tipo de documento:</label>
+                <select id="tipoDocumento" name="tipoDocumento">
+                  <option value="Carnet de Identidad">Carnet de identidad</option>
+                  <option value="Carnet extrangero">Carnet extrangero</option>
+                  <option value="Pasaporte">Pasaporte</option>
+                  <option value="RUN">RUN</option>
+                </select>
+              </div>
+            <div class="column">
+              <label for="numeroDocumento">Numero de documento:</label>
+              <input type="text" id="numeroDocumento" name="numeroDocumento">
+            </div>
+          </div>
+
+          <!-- Nombres y Apellidos -->
+          <div class="form-group two-columns">
+            <div class="column">
+              <label for="Nombres">Nombres:</label>
+              <input type="text" id="Nombres" name="Nombres">
+            </div>
+            <div class="column">
+              <label for="primerApellido">Primer Apellido:</label>
+              <input type="text" id="primerApellido" name="primerApellido">
+            </div>
+          </div>
+
+          <!-- segundo apellidos -->
+          <div class="form-group two-columns">
+            <div class="column">
+              <label for="segundoApellido">Segundo Apellido:</label>
+              <input type="text" id="segundoApellido" name="segundoApellido">
+            </div>
+            <div class="column">
+              
+            </div>
+          </div>
+
+          <!-- Dirección -->
+          <div class="form-group">
+            <label for="Direccion">Dirección:</label>
+            <input type="text" id="Direccion" name="Direccion">
+          </div>
+
+          <!-- telefono y otro telefono -->
+          <div class="form-group two-columns">
+            <div class="column">
+              <label for="nroCelular">Nro. Celular:</label>
+              <input type="text" id="nroCelular" name="nroCelular">
+            </div>
+            <div class="column">
+              <label for="otroTelefono">Otro Telefono:</label>
+              <input type="text" id="otroTelefono" name="otroTelefono">
+            </div>
+          </div>
+          
+            <!-- correo -->
+            <div class="form-group two-columns">
+                <div class="column">
+                  <label for="Correo">Correo Electronico:</label>
+                  <input type="text" id="Correo" name="Correo">
+                </div>
+                <div class="column">
+                  
+                </div>
+              </div>
+
+          
+        </div>
+  
+        <!-- Sección de Agrupación -->
+        <h2>Agrupación</h2>
+        < class="form-section">
+          <!-- Nombre del grupo -->
+          <div class="form-group">
+            <label for="nombre-grupo">Nombre Grupo:</label>
+            <input type="text" id="nombreGrupo" name="nombreGrupo">
+          </div>
+  
+          <!-- Categoría -->
+          <div class="form-group">
+            <label for="categoria">Categoría:</label>
+            <div class="checkbox-group">
+                <div class="checkbox-row">
+
+                    <div class="checkbox-row-cat">
+                    <input type="radio" id="Categoria" name="Categoria" value="Inicial">
+                    <label for="Inicial">Inicial&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+
+                    <div class="checkbox-row-cat">
+                    <input type="radio" id="Categoria" name="Categoria" value="Primaria">
+                    <label for="Primaria">Primaria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+
+                    <div class="checkbox-row-cat">
+                    <input type="radio" id="Categoria" name="Categoria" value="Secundaria">
+                    <label for="Secundaria">Secundaria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </div>
+                <div class="checkbox-row">
+                    <div class="checkbox-row-cat">
+                    <input type="radio" id="Categoria" name="Categoria" value="Universitaria">
+                    <label for="Universitaria">Universitaria</label>
+                    </div>
+
+                    <div class="checkbox-row-cat">
+                    <input type="radio" id="Categoria" name="Categoria" value="Junta">
+                    <label for="Junta">Junta Vecinal/Sindicatos</label>
+                    </div>
+
+                    <div class="checkbox-row-cat">
+                    <input type="radio" id="Categoria" name="Categoria" value="Otros">
+                    <label for="Otros">individual/Otros</label>
+                    </div>
+                </div>
+            </div>
+  
+          <!-- Banda -->
+          <div class="form-group">
+            <label for="Banda">Banda:</label>
+            <textarea id="Banda" name="Banda" rows="3"></textarea>
+          </div>
+        
+          <!-- Carro Alegorico -->
+          <div class="form-group">
+            <label for="carro">Carro Alegorico:</label>
+            <textarea id="carroAlegorico" name="carroAlegorico" rows="3"></textarea>
+          </div>
+
+          <!-- reina -->
+          <div class="form-group">
+            <label for="reina">Reina:</label>
+            <input type="text" id="Reina" name="Reina">
+          </div>
+
+        </div>
+  
+        <!-- Números y Total -->
+        <div class="form-group small-inputs">
+            <div class="input-group">
+              <label for="num-mayores">Num Mayores:</label>
+              <input type="number" id="totalMayores" name="totalMayores" min="0">
+            </div>
+            <div class="input-group">
+              <label for="num-menores">Num Menores:</label>
+              <input type="number" id="totalMenores" name="totalMenores" min="0">
+            </div>
+            <div class="input-group">
+              <label for="total">Total:</label>
+              <input type="text" id="total" name="total" readonly>
+            </div>
+            <input type="text" id="Estado" name="Estado" type="hidden" value="Aprobado">
+            <input type="text" id="Fecha" name="Fecha" value=" " type="hidden">
+        </div>
+  
+        <!-- Botón de Registro -->
+        <div class="form-group aling-button">
+            <button type="submit" class="register-button">Cerrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  
+  
+  <!-- Script para calcular el total -->
+  <script>
+    document.getElementById('totalMayores').addEventListener('input', calculateTotal);
+    document.getElementById('totalMenores').addEventListener('input', calculateTotal);
+  
+    function calculateTotal() {
+      const numMayores = parseInt(document.getElementById('totalMayores').value) || 0;
+      const numMenores = parseInt(document.getElementById('totalMenores').value) || 0;
+      document.getElementById('total').value = numMayores + numMenores;
+    }
+  </script>
+  
