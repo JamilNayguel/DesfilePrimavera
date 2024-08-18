@@ -29,4 +29,21 @@ export class RequestService {
     return this.http.get<any>('${this.apiUrl}/view/${id}');
   }
 
+
+  getRequestFilter(Tipo: string, Categoria: string, nombreGrupo?: string, Solicitante?: string): Observable<any[]> {
+    let params = new HttpParams()
+      .set('Tipo', Tipo)
+      .set('Categoria', Categoria);
+
+    if (nombreGrupo) {
+      params = params.set('nombreGrupo', nombreGrupo);
+    }
+
+    if (Solicitante) {
+      params = params.set('Solicitante', Solicitante);
+    }
+
+    return this.http.get<any[]>('${this.apiUrl}/filter', { params });
+  }
+
 }
