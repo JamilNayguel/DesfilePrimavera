@@ -12,8 +12,8 @@ exports.createRequest = async (req, res) => {
         'Primaria': 40,
         'Secundaria': 40,
         'Universitaria': 50,
-        'Junta Vecinal': 50,
-        'Otros': 3
+        'Junta V/Sindicato': 50,
+        'Individual/Otro': 3
     };
 
     if (totalParticipantes < categoriasMinimos[requestData.Categoria]) {
@@ -73,10 +73,10 @@ exports.getRequestById = async (req, res) => {
 };
 
 exports.searchRequestsByNameAndLastName = async (req, res) => {
-    const { nombre, primerApellido } = req.query;
+    const { Nombres, primerApellido } = req.query;
 
     try {
-        const requests = await Request.searchByNameAndLastName(nombre, primerApellido);
+        const requests = await Request.searchByNameAndLastName(Nombres, primerApellido);
         res.status(200).json(requests);
     } catch (err) {
         res.status(500).json({ error: 'Error al buscar solicitudes' });
@@ -84,10 +84,19 @@ exports.searchRequestsByNameAndLastName = async (req, res) => {
 };
 
 exports.searchRequestsByMultipleParams = async (req, res) => {
-    const { Tipo, Categoria, NombreGrupo, Nombres } = req.query;
+    const { Tipo, Categoria, nombreGrupo, Solicitante } = req.query;
+    
+      let Nombres = '';
+      let primerApellido = '';
 
+    // Extraer nombre y apellido si se proporciona el Solicitante
+    if (Solicitante) {
+        const parts = Solicitante.trim().split(' ');
+        Nombres = parts[0]; // El primer valor es el nombre
+        primerApellido = parts.slice(1).join(' '); // El resto es el apellido (por si tiene más de un apellido)
+    }
     try {
-        const requests = await Request.searchByMultipleParams({ Tipo, Categoria, NombreGrupo, Nombres });
+        const requests = await Request.searchByMultipleParams({ Tipo, Categoria, nombreGrupo, Nombres, primerApellido });
         res.status(200).json(requests);
     } catch (err) {
         res.status(500).json({ error: 'Error al buscar solicitudes' });

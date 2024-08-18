@@ -38,7 +38,7 @@ const Request = {
     },
 
     findById: async (id) => {
-        const query = `SELECT * FROM requests WHERE Nro = $1`;
+        const query = `SELECT * FROM Requests WHERE Nro = $1`;
         try {
             const request = await db.oneOrNone(query, [id]);
             return request;
@@ -47,10 +47,10 @@ const Request = {
         }
     },
 
-    searchByNameAndLastName: async (nombre, primerApellido) => {
-        const query = `SELECT * FROM requests WHERE Nombres ILIKE $1 AND primerApellido ILIKE $2`;
+    searchByNameAndLastName: async (Nombres, primerApellido) => {
+        const query = `SELECT * FROM Requests WHERE Nombres ILIKE $1 OR primerApellido ILIKE $2`;
         try {
-            const requests = await db.any(query, [`%${nombre}%`, `%${primerApellido}%`]);
+            const requests = await db.any(query, [`%${Nombres}%`, `%${primerApellido}%`]);
             return requests;
         } catch (err) {
             throw new Error('Error al buscar solicitudes por nombre y apellido');
@@ -58,20 +58,22 @@ const Request = {
     },
 
     searchByMultipleParams: async (params) => {
-        const { Tipo, Categoria, NombreGrupo, Nombres } = params;
+        const { Tipo, Categoria, nombreGrupo, Nombres,primerApellido } = params;
         const query = `
             SELECT * FROM requests 
             WHERE 
             ($1 IS NULL OR Tipo ILIKE $1) AND
             ($2 IS NULL OR Categoria ILIKE $2) AND
-            ($3 IS NULL OR NombreGrupo ILIKE $3) AND
-            ($4 IS NULL OR Nombres ILIKE $4)`;
+            ($3 IS NULL OR nombreGrupo ILIKE $3) AND
+            ($4 IS NULL OR Nombres ILIKE $4) AND
+            ($5 IS NULL OR primerApellido ILIKE $5)`;
         try {
             const requests = await db.any(query, [
                 Tipo ? `%${Tipo}%` : null,
                 Categoria ? `%${Categoria}%` : null,
-                NombreGrupo ? `%${NombreGrupo}%` : null,
-                Nombres ? `%${Nombres}%` : null
+                nombreGrupo ? `%${nombreGrupo}%` : null,
+                Nombres ? `%${Nombres}%` : null,
+                primerApellido ? `%${primerApellido}%` : null
             ]);
             return requests;
         } catch (err) {
