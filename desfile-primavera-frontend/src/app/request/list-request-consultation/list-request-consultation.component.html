@@ -1,1 +1,432 @@
-<p>list-request-consultation works!</p>
+<div class="page-container">
+    <!-- Banner en la parte superior -->
+    <header class="banner-container">
+        <img src="image/banner.jpg" alt="Banner" class="banner">
+    </header>
+
+    <!-- Contenedor principal con el navbar a la izquierda y el dashboard a la derecha -->
+    <div class="content-container">
+        <!-- Botón para desplegar el navbar -->
+        <button id="navbar-toggle" class="navbar-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <!-- Navbar con opciones a la izquierda -->
+        <nav class="navbar">
+            <ul>
+                <li><a (click)="SailStarttRequest()" class="nav-link">Inicio</a></li>
+                <li><a (click)="SailListRequest()" class="nav-link">Solicitudes</a></li>
+                <li><a (click)="SailListConsultationRequest()" class="nav-link">Consultas</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contenedor del dashboard -->
+        <div class="dashboard-container">
+            <h1>Desfile de la Primavera</h1>
+            <h2>Gestión 2024</h2>
+
+            <!-- Contenido del dashboard -->
+            <div class="dashboard-content">
+
+
+                <div class="form-group two-columns">
+                    <div class="form-group column">
+                        <label for="Tipo">Tipo:</label>
+                        <select id="Tipo" name="Tipo" [(ngModel)]="Tipo">
+                          <option value="Institucion">Institucion</option>
+                          <option value="Organizacion">Organizacion</option>
+                          <option value="Particular">Particular</option>
+                        </select>
+                    </div>
+                    <div class="form-group column">
+                        <label for="Categoria">Categoria:</label>
+                        <select id="Categoria" name="Categoria" [(ngModel)]="Categoria">
+                          <option value="Inicial">Inicial</option>
+                          <option value="Primaria">Primaria</option>
+                          <option value="Secundaria">Secundaria</option>
+                          <option value="Universitaria">Universitaria</option>
+                          <option value="Junta V/Sindicato">Junta V./Sindicato</option>
+                          <option value="Individual/Otro">Individual/Otros</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group two-columns">
+                    <div class="column">
+                      <label for="nombreGrupo">Nombre G./Participantes:</label>
+                      <input type="text" id="nombreGrupo" name="nombreGrupo" required [(ngModel)]="nombreGrupo">
+                    </div>
+                    <div class="column">
+                      <label for="Solicitante">Solicitante:</label>
+                      <input type="text" id="Solicitante" name="Solicitante" required [(ngModel)]="Solicitante" >
+                    </div>
+                </div>
+
+                <div class="form-group aling-button">
+                    <button class="register-button" (click)="searchRequest()">Buscar</button>
+                </div>
+                
+
+                <!-- Tabla de solicitudes -->
+                <table class="solicitudes-table" *ngIf="requests.length > 0">
+                    <thead>
+                        <tr>
+                            <th>Nro</th>
+                            <th>Fecha</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Participantes</th>
+                            <th>Solicitante</th>
+                            <th>Nro Celular</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Filas de ejemplo -->
+                        <tr *ngFor="let request of requests; let i = index" >
+                            <td>{{ request.Nro }}</td>
+                            <td>{{ request.Fecha | date  }}</td>
+                            <td>{{ request.nombreGrupo }}</td>
+                            <td>{{ request.Categoria }}</td>
+                            <td>{{ request.totalMayores + request.totalMenores }}</td>
+                            <td>{{ request.Nombres + ' ' + request.primerApellido }}</td>
+                            <td>{{ request.nroCelular }}</td>
+                            <td>{{ request.Estado }}</td>
+                        </tr>
+                        <!-- Más filas de ejemplo -->
+                    </tbody>
+                </table>
+                <p *ngIf="requests.length === 0">No se encontraron solicitudes con los filtros aplicados.</p>
+                <!-- Paginador -->
+                <div class="pagination-container">
+                    <button class="pagination-button">Anterior</button>
+                    <span id="page-number">1</span>
+                    <button class="pagination-button">Siguiente</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Estilos -->
+<style>
+    /* Reset de márgenes y rellenos en el body */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Banner */
+    .banner-container {
+        width: 100%;
+        margin: 0; /* Eliminar márgenes */
+        padding: 0; /* Eliminar rellenos */
+    }
+
+    .banner {
+        width: 100%;
+        height: auto;
+        display: block; /* Asegura que no haya espacios blancos */
+    }
+
+    /* Contenedor principal */
+    .page-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    .content-container {
+        display: flex;
+        flex: 1;
+        position: relative;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        display: block;
+        color: #6d56a0;
+        margin-bottom: 5px;
+    }
+    .form-group select{
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    }
+    .form-group input[type="text"]{
+        width: 50%;
+        padding: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        display:block;
+        color: #6d56a0;
+        margin-bottom: 5px;
+    }
+
+    .form-group text:focus{
+        outline: none;
+        border-color: #4fb9a8;
+        box-shadow: 0 0 3px #4fb9a8;
+    }
+    .form-group select:focus{
+        outline: none;
+        border-color: #4fb9a8;
+        box-shadow: 0 0 3px #4fb9a8;
+    }
+    .form-group.two-columns {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+    
+    .form-group.two-columns .column {
+        flex: 1;
+    }
+
+    /* Navbar */
+    .navbar {
+        width: 250px;
+        background-color: #6d56a0; /* Color principal del navbar */
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: -250px;
+        transition: left 0.3s;
+        z-index: 1000;
+    }
+
+    .navbar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbar ul li {
+        width: 100%;
+    }
+
+    .navbar ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 15px 20px;
+        transition: background-color 0.3s;
+        text-align: center;
+    }
+
+    .navbar ul li a:hover {
+        background-color: #4fb9a8; /* Color de hover en los enlaces del navbar */
+    }
+
+    /* Botón de toggle para el navbar */
+    .navbar-toggle {
+        background-color: #f9b154; /* Color del botón de toggle */
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1001;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    .navbar-toggle:hover {
+        background-color: #f18a31; /* Hover para el botón de toggle */
+    }
+
+    /* Dashboard */
+    .dashboard-container {
+        flex: 1;
+        padding: 20px;
+        background-color: #ffffff;
+        text-align: center;
+        margin: auto; /* Centrar el contenido horizontalmente */
+        transition: margin-left 0.3s;
+        max-width: 1100px; /* Aumentar el ancho máximo para el contenido */
+    }
+
+    .dashboard-container h1, h2 {
+        color: #6d56a0; /* Color del título principal */
+    }
+
+    .dashboard-content {
+        margin-top: 20px;
+    }
+
+    /* Buscador */
+    .search-container {
+        margin-bottom: 20px;
+        text-align: left; /* Mover el buscador a la izquierda */
+    }
+
+    .search-input {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 300px;
+        transition: border-color 0.3s;
+    }
+
+    .search-input:focus {
+        border-color: #6d56a0;
+    }
+
+    /* Tabla de solicitudes */
+    .solicitudes-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+         /* Aumentar espacio lateral izquierdo */
+        margin-right: 50px; /* Aumentar espacio lateral derecho */
+        table-layout: fixed; /* Asegura que las columnas tengan tamaños fijos */
+    }
+
+    .solicitudes-table th,
+    .solicitudes-table td {
+        padding: 16px; /* Ampliar aún más el espacio dentro de las celdas */
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .solicitudes-table th {
+        background-color: #6d56a0;
+        color: white;
+    }
+
+    .solicitudes-table tbody tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    .solicitudes-table .icon-opciones {
+        font-size: 18px; /* Tamaño del icono de opciones */
+        color: #4fb9a8;
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .solicitudes-table .icon-opciones:hover {
+        color: #3a9682; /* Hover para el icono de opciones */
+    }
+
+    /* Paginador */
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .pagination-button {
+        background-color: #6d56a0;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .pagination-button:hover {
+        background-color: #4fb9a8;
+    }
+
+    #page-number {
+        font-size: 16px;
+        color: #6d56a0;
+    }
+
+    /* Navbar abierto */
+    .navbar-open .navbar {
+        left: 0;
+    }
+
+    .navbar-open .dashboard-container {
+        margin-left: 250px; /* Ajuste cuando el navbar está abierto */
+    }
+
+
+    .register-button {
+        justify-content: center;
+        background-color: #6d56a0; /* Color del botón */
+        color: white;
+        padding: 10px 20px; /* Ajusta la altura y el ancho */
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+        width: auto; /* Hace que el botón se ajuste automáticamente al contenido */
+        min-width: 200px; /* Establece un ancho mínimo si es necesario */
+      }
+    
+      .register-button:hover {
+        background-color: #4fb9a8; /* Color de hover */
+      }
+      .aling-button{
+        display: flex;
+        justify-content: center;
+      }
+
+</style>
+
+<!-- JavaScript para el toggle del navbar -->
+<script>
+    const navbarToggle = document.getElementById('navbar-toggle');
+    const pageContainer = document.querySelector('.page-container');
+
+    navbarToggle.addEventListener('click', () => {
+        pageContainer.classList.toggle('navbar-open');
+    });
+
+    // JavaScript para el buscador
+    const searchInput = document.getElementById('search-input');
+    const tableBody = document.getElementById('table-body');
+
+    searchInput.addEventListener('input', () => {
+        const filter = searchInput.value.toLowerCase();
+        const rows = tableBody.querySelectorAll('tr');
+
+        rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            let match = false;
+
+            for (let i = 0; i < cells.length - 1; i++) {
+                if (cells[i].innerText.toLowerCase().includes(filter)) {
+                    match = true;
+                    break;
+                }
+            }
+
+            row.style.display = match ? '' : 'none';
+        });
+    });
+</script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  
+
