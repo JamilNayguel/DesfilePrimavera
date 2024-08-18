@@ -8,7 +8,7 @@ requestRouter.post('/create', createRequest);
 
 requestRouter.get('/search', verifyToken, searchRequestsByNameAndLastName);
 
-requestRouter.get('/:id', verifyToken, getRequestById);
+requestRouter.get('/view/:id', verifyToken, getRequestById);
 
 requestRouter.get('/filter', verifyToken, searchRequestsByMultipleParams);
 
