@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
+import { FormsModule } from '@angular/forms';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  // private apiUrl = 'http://localhost:3000/user'; // URL de tu backend
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
-  // constructor(private http: HttpClient) { }
+  login(Usuario: string, Contrasena: string): Observable<any> {
+    return this.authService.login(Usuario, Contrasena);
+  }
 
-  // login(username: string, password: string): Observable<any> {
-  //   return this.http.post(${apiUrl}/auth/login, { Usuario, password });
-  // }
-
-  // private getAuthHeaders(): HttpHeaders {
-  //   const token = localStorage.getItem('token'); // Obtener token del almacenamiento local
-  //   return new HttpHeaders().set('Authorization', Bearer ${token});
-  // }
+  logout(): void {
+    this.authService.logout();
+  }
 }

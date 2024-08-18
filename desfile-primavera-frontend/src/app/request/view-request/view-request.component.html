@@ -2,38 +2,31 @@
 <div class="page-container">
     <!-- Banner en la parte superior -->
     <header class="banner-container">
-      <img src="desfile-primavera-frontend\src\app\image\banner.jpg" alt="Banner" class="banner">
+      <img src="image\banner.jpg" alt="Banner" class="banner">
     </header>
   
     <!-- Contenido centrado -->
     <div class="form-container">
-      <form id="inscription-form">
+      <div id="inscription-form">
         <!-- Sección de Datos Personales -->
         <h2>Datos Personales</h2>
         <div class="form-section">
           <!-- Tipo -->
-          <div class="form-group">
-            <label for="tipo">Tipo:</label>
-            <select id="Tipo" name="Tipo">
-              <option value="Institucion">Institucion</option>
-              <option value="Organizacion">Organizacion</option>
-              <option value="Particular">Particular</option>
-            </select>
+          
+          <div class="form-group small-inputs">
+            <label for="Tipo">Tipo:</label>
+            <!-- <input type="text" id="Tipo" name="Tipo" readonly> -->
+            <p>{{ request.Tipo }}</p>
           </div>
   
           <div class="form-group two-columns">
-            <div class="form-group column">
-                <label for="tipoDocumento">Tipo de documento:</label>
-                <select id="tipoDocumento" name="tipoDocumento">
-                  <option value="Carnet de Identidad">Carnet de identidad</option>
-                  <option value="Carnet extrangero">Carnet extrangero</option>
-                  <option value="Pasaporte">Pasaporte</option>
-                  <option value="RUN">RUN</option>
-                </select>
-              </div>
+            <div class="column">
+              <label for="tipoDocumento">Tipo de documento:</label>
+              <input type="text" id="tipoDocumento" name="tipoDocumento" readonly>
+            </div>
             <div class="column">
               <label for="numeroDocumento">Numero de documento:</label>
-              <input type="text" id="numeroDocumento" name="numeroDocumento">
+              <input type="text" id="numeroDocumento" name="numeroDocumento" readonly>
             </div>
           </div>
 
@@ -41,11 +34,11 @@
           <div class="form-group two-columns">
             <div class="column">
               <label for="Nombres">Nombres:</label>
-              <input type="text" id="Nombres" name="Nombres">
+              <input type="text" id="Nombres" name="Nombres" readonly>
             </div>
             <div class="column">
               <label for="primerApellido">Primer Apellido:</label>
-              <input type="text" id="primerApellido" name="primerApellido">
+              <input type="text" id="primerApellido" name="primerApellido" readonly>
             </div>
           </div>
 
@@ -53,7 +46,7 @@
           <div class="form-group two-columns">
             <div class="column">
               <label for="segundoApellido">Segundo Apellido:</label>
-              <input type="text" id="segundoApellido" name="segundoApellido">
+              <input type="text" id="segundoApellido" name="segundoApellido" readonly>
             </div>
             <div class="column">
               
@@ -63,18 +56,18 @@
           <!-- Dirección -->
           <div class="form-group">
             <label for="Direccion">Dirección:</label>
-            <input type="text" id="Direccion" name="Direccion">
+            <input type="text" id="Direccion" name="Direccion" readonly>
           </div>
 
           <!-- telefono y otro telefono -->
           <div class="form-group two-columns">
             <div class="column">
               <label for="nroCelular">Nro. Celular:</label>
-              <input type="text" id="nroCelular" name="nroCelular">
+              <input type="text" id="nroCelular" name="nroCelular" readonly>
             </div>
             <div class="column">
               <label for="otroTelefono">Otro Telefono:</label>
-              <input type="text" id="otroTelefono" name="otroTelefono">
+              <input type="text" id="otroTelefono" name="otroTelefono" readonly>
             </div>
           </div>
           
@@ -82,7 +75,7 @@
             <div class="form-group two-columns">
                 <div class="column">
                   <label for="Correo">Correo Electronico:</label>
-                  <input type="text" id="Correo" name="Correo">
+                  <input type="text" id="Correo" name="Correo" readonly>
                 </div>
                 <div class="column">
                   
@@ -94,99 +87,260 @@
   
         <!-- Sección de Agrupación -->
         <h2>Agrupación</h2>
-        < class="form-section">
+        <form class="form-section">
           <!-- Nombre del grupo -->
           <div class="form-group">
             <label for="nombre-grupo">Nombre Grupo:</label>
-            <input type="text" id="nombreGrupo" name="nombreGrupo">
+            <input type="text" id="nombreGrupo" name="nombreGrupo" readonly>
           </div>
   
           <!-- Categoría -->
-          <div class="form-group">
-            <label for="categoria">Categoría:</label>
-            <div class="checkbox-group">
-                <div class="checkbox-row">
-
-                    <div class="checkbox-row-cat">
-                    <input type="radio" id="Categoria" name="Categoria" value="Inicial">
-                    <label for="Inicial">Inicial&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    </div>
-
-                    <div class="checkbox-row-cat">
-                    <input type="radio" id="Categoria" name="Categoria" value="Primaria">
-                    <label for="Primaria">Primaria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    </div>
-
-                    <div class="checkbox-row-cat">
-                    <input type="radio" id="Categoria" name="Categoria" value="Secundaria">
-                    <label for="Secundaria">Secundaria&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    </div>
-                </div>
-                <div class="checkbox-row">
-                    <div class="checkbox-row-cat">
-                    <input type="radio" id="Categoria" name="Categoria" value="Universitaria">
-                    <label for="Universitaria">Universitaria</label>
-                    </div>
-
-                    <div class="checkbox-row-cat">
-                    <input type="radio" id="Categoria" name="Categoria" value="Junta">
-                    <label for="Junta">Junta Vecinal/Sindicatos</label>
-                    </div>
-
-                    <div class="checkbox-row-cat">
-                    <input type="radio" id="Categoria" name="Categoria" value="Otros">
-                    <label for="Otros">individual/Otros</label>
-                    </div>
-                </div>
+          <div class="form-group two-columns">
+            <div class="column">
+              <label for="Categoria">Categoria:</label>
+              <input type="text" id="Categoria" name="Categoria" readonly>
             </div>
+            <div class="column">
+              
+            </div>
+          </div>
+
+           
   
           <!-- Banda -->
           <div class="form-group">
             <label for="Banda">Banda:</label>
-            <textarea id="Banda" name="Banda" rows="3"></textarea>
+            <textarea id="Banda" name="Banda" rows="3" readonly></textarea>
           </div>
         
           <!-- Carro Alegorico -->
           <div class="form-group">
             <label for="carro">Carro Alegorico:</label>
-            <textarea id="carroAlegorico" name="carroAlegorico" rows="3"></textarea>
+            <textarea id="carroAlegorico" name="carroAlegorico" rows="3" readonly></textarea>
           </div>
 
           <!-- reina -->
           <div class="form-group">
             <label for="reina">Reina:</label>
-            <input type="text" id="Reina" name="Reina">
+            <input type="text" id="Reina" name="Reina" readonly>
           </div>
 
-        </div>
+        
   
         <!-- Números y Total -->
-        <div class="form-group small-inputs">
-            <div class="input-group">
-              <label for="num-mayores">Num Mayores:</label>
-              <input type="number" id="totalMayores" name="totalMayores" min="0">
-            </div>
-            <div class="input-group">
-              <label for="num-menores">Num Menores:</label>
-              <input type="number" id="totalMenores" name="totalMenores" min="0">
-            </div>
+          <div class="form-group small-inputs">
+              <div class="input-group">
+                <label for="num-mayores">Num Mayores:</label>
+                <input type="text" id="totalMayores" name="totalMayores" min="0" readonly>
+              </div>
+              <div class="input-group">
+                <label for="num-menores">Num Menores:</label>
+                <input type="text" id="totalMenores" name="totalMenores" min="0" readonly>
+              </div>
+              
+          </div>
+          <div class="form-group small-inputs">
+            
             <div class="input-group">
               <label for="total">Total:</label>
               <input type="text" id="total" name="total" readonly>
             </div>
-            <input type="text" id="Estado" name="Estado" type="hidden" value="Aprobado">
-            <input type="text" id="Fecha" name="Fecha" value=" " type="hidden">
         </div>
   
         <!-- Botón de Registro -->
-        <div class="form-group aling-button">
-            <button type="submit" class="register-button">Cerrar</button>
-        </div>
+          <div class="form-group aling-button">
+              <button type="submit" class="register-button">Cerrar</button>
+          </div>
       </form>
     </div>
   </div>
+</div>
+
+
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+    h2{
+        font-family: 'Arciform',sans-serif;
+    }
+    
+    /* Banner */
+    .banner-container {
+      width: 100%;
+    }
+  
+    .banner {
+      width: 100%;
+      height: auto;
+    }
+  
+    /* Contenedor principal */
+    .page-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Asegura que el contenido se alinee en la parte superior */
+        height: 100vh;
+        margin: 0;
+        padding: 0; /* Asegúrate de que no haya relleno que pueda estar causando espacios adicionales */
+    }
+  
+    .form-container {
+      width: 100%;
+      max-width: 800px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+  
+    h2 {
+      color: #6d56a0; /* Color del título */
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .form-group {
+      margin-bottom: 20px;
+    }
+  
+    .form-group label {
+      display: block;
+      color: #6d56a0;
+      margin-bottom: 5px;
+    }
+  
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+    }
+  
+    .form-group textarea:focus{
+        outline: none;
+        border-color: #4fb9a8;
+        box-shadow: 0 0 3px #4fb9a8;
+    }
+    .form-group select:focus{
+        outline: none;
+        border-color: #4fb9a8;
+        box-shadow: 0 0 3px #4fb9a8;
+    }
+    .form-group input:focus{
+        outline: none;
+        border-color: #4fb9a8;
+        box-shadow: 0 0 3px #4fb9a8;
+    }
+  
+    .form-group textarea {
+      resize: none;
+    }
+  
+    .form-group .small-inputs {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px; 
+    }
+    
+    .form-group .small-inputs div {
+        flex: 1; 
+    }
+  
+    .form-group.two-columns {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+  
+    .form-group.two-columns .column {
+      flex: 1;
+    }
+  
+    .checkbox-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .checkbox-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+    .checkbox-row-cat{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .checkbox-row-cat label{
+        align-items: center;
+        margin-top: 8px;
+    }
+    .checkbox-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        text-align: center;
+    }
+    
+    .checkbox-item label {
+        margin-left: 1px; /* Espacio entre el checkbox y su etiqueta */
+    }
+  
+    .register-button {
+        justify-content: center;
+        background-color: #6d56a0; /* Color del botón */
+        color: white;
+        padding: 10px 20px; /* Ajusta la altura y el ancho */
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+        width: auto; /* Hace que el botón se ajuste automáticamente al contenido */
+        min-width: 500px; /* Establece un ancho mínimo si es necesario */
+      }
+    
+      .register-button:hover {
+        background-color: #4fb9a8; /* Color de hover */
+      }
+      .aling-button{
+        display: flex;
+        justify-content: center;
+      }
   
   
+    .small-inputs {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px; /* Espacio entre los grupos */
+      }
+    
+      .input-group {
+        display: flex;
+        align-items: center;
+        
+      }
+    
+      .input-group label {
+        margin-right: 10px; /* Espacio entre la etiqueta y el input */
+      }
+    
+      .input-group input {
+        flex: 1;
+        padding: 5px;
+      }
+  </style>
   
   <!-- Script para calcular el total -->
   <script>
